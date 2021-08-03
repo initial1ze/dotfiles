@@ -107,7 +107,7 @@ for _, server in pairs(servers) do
 end
 
 -- Send diagnostics to quickfix list
-do
+--[[ do
     local method = "textDocument/publishDiagnostics"
     local default_handler = vim.lsp.handlers[method]
     vim.lsp.handlers[method] = function(err, method, result, client_id, bufnr,
@@ -126,4 +126,11 @@ do
         end
         vim.lsp.util.set_qflist(qflist)
     end
-end
+end ]]
+
+vim.lsp.handlers['textDocument/publishDiagnostics'] =
+    vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
+        underline = true,
+        virtual_text = {spacing = 5, severity_limit = 'Warning'},
+        update_in_insert = true
+    })

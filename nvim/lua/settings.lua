@@ -21,19 +21,21 @@ utils.opt('w', 'number', true)
 utils.opt('w', 'relativenumber', true)
 utils.opt('o', 'clipboard', 'unnamed,unnamedplus')
 
--- Folding
--- vim.cmd [[
--- set foldmethod=expr
--- set foldexpr=nvim_treesitter#foldexpr()
--- ]]
-
--- Highlight on yank
-vim.cmd 'au TextYankPost * lua vim.highlight.on_yank {on_visual = false}'
+-- Foldiing
+--[[ utils.opt('o', 'foldmethod', 'expr')
+utils.opt('o', 'foldexpr', 'nvim_treesitter#foldexpr()') ]]
 
 -- Auto Format on save
 vim.api.nvim_exec([[
 augroup FormatAutogroup
   autocmd!
-  autocmd BufWritePost *.py,*.cpp,*.c,*.cc,*.js,*.jsx,*.ts,*.tsx,*.rs,*.lua FormatWrite
+  autocmd BufWritePost *.py,*.cpp,*.c,*.cc,*.js,*.jsx,*.ts,*.tsx,*.rs,*.html,*.css FormatWrite
 augroup END
 ]], true)
+
+vim.cmd 'let g:asyncrun_open = 6'
+
+-- Custom split stuff
+vim.cmd [[
+command! -nargs=0 -bar Ioe :edit input | :edit output | :edit error | :edit main.cpp
+]]

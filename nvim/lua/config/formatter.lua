@@ -1,14 +1,34 @@
 require('formatter').setup({
     logging = false,
     filetype = {
+        css = {
+            -- prettier
+            function()
+                return {
+                    exe = 'prettier',
+                    args = {'--stdin-filepath', vim.api.nvim_buf_get_name(0)},
+                    stdin = true
+                }
+            end
+        },
+        html = {
+            -- prettier
+            function()
+                return {
+                    exe = 'prettier',
+                    args = {'--stdin-filepath', vim.api.nvim_buf_get_name(0)},
+                    stdin = true
+                }
+            end
+        },
         javascript = {
             -- prettier
             function()
                 return {
-                    exe = "prettier",
+                    exe = 'prettier',
                     args = {
-                        "--stdin-filepath", vim.api.nvim_buf_get_name(0),
-                        "--single-quote", "--use-tabs"
+                        '--stdin-filepath', vim.api.nvim_buf_get_name(0),
+                        '--single-quote', '--use-tabs'
                     },
                     stdin = true
                 }
@@ -18,10 +38,10 @@ require('formatter').setup({
             -- prettier
             function()
                 return {
-                    exe = "prettier",
+                    exe = 'prettier',
                     args = {
-                        "--stdin-filepath", vim.api.nvim_buf_get_name(0),
-                        "--jsx-single-quote", "--use-tabs"
+                        '--stdin-filepath', vim.api.nvim_buf_get_name(0),
+                        '--jsx-single-quote', '--use-tabs'
                     },
                     stdin = true
                 }
@@ -31,10 +51,10 @@ require('formatter').setup({
             -- prettier
             function()
                 return {
-                    exe = "prettier",
+                    exe = 'prettier',
                     args = {
-                        "--stdin-filepath", vim.api.nvim_buf_get_name(0),
-                        "--single-quote", "--use-tabs"
+                        '--stdin-filepath', vim.api.nvim_buf_get_name(0),
+                        '--single-quote', '--use-tabs'
                     },
                     stdin = true
                 }
@@ -44,10 +64,10 @@ require('formatter').setup({
             -- prettier
             function()
                 return {
-                    exe = "prettier",
+                    exe = 'prettier',
                     args = {
-                        "--stdin-filepath", vim.api.nvim_buf_get_name(0),
-                        "--use-tabs"
+                        '--stdin-filepath', vim.api.nvim_buf_get_name(0),
+                        '--use-tabs'
                     },
                     stdin = true
                 }
@@ -56,15 +76,15 @@ require('formatter').setup({
         rust = {
             -- Rustfmt
             function()
-                return {exe = "rustfmt", args = {"--emit=stdout"}, stdin = true}
+                return {exe = 'rustfmt', args = {'--emit=stdout'}, stdin = true}
             end
         },
         lua = {
             -- luafmt
             function()
                 return {
-                    exe = "lua-format",
-                    -- args = {"--indent-count", 2, "--stdin"},
+                    exe = 'lua-format',
+                    -- args = {'--indent-count', 2, '--stdin'},
                     stdin = true
                 }
             end
@@ -72,7 +92,7 @@ require('formatter').setup({
         python = {
             function()
                 return {
-                    exe = "yapf",
+                    exe = 'yapf',
                     -- args = {},
                     stdin = true
                 }
@@ -81,7 +101,7 @@ require('formatter').setup({
         cpp = {
             function()
                 return {
-                    exe = "clang-format",
+                    exe = 'clang-format',
                     -- args = {},
                     stdin = true
                 }
@@ -90,7 +110,7 @@ require('formatter').setup({
         c = {
             function()
                 return {
-                    exe = "clang-format",
+                    exe = 'clang-format',
                     -- args = {},
                     stdin = true
                 }

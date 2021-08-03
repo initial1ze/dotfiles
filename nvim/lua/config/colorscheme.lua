@@ -4,7 +4,9 @@ local cmd = vim.cmd
 utils.opt('o', 'termguicolors', true)
 
 -- cmd 'colorscheme horizon'
-cmd 'colorscheme ayu'
+vim.g.material_style = "darker"
+vim.g.material_hide_eob = true
+cmd 'colorscheme material'
 -- vim.g.gruvbox_contrast_dark = 'hard'
 -- vim.g.gruvbox_number_column = '#1d2021'
 -- -- Example config in Lua

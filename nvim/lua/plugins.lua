@@ -10,11 +10,19 @@ return require('packer').startup(function()
     use {'ayu-theme/ayu-vim'}
     use {'folke/tokyonight.nvim'}
     use {'rafi/awesome-vim-colorschemes'}
+    use 'marko-cerovac/material.nvim'
 
     -- Fuzzy finder
     use {
         'nvim-telescope/telescope.nvim',
-        requires = {{'nvim-lua/popup.nvim'}, {'nvim-lua/plenary.nvim'}}
+        requires = {{'nvim-lua/popup.nvim'}, {'nvim-lua/plenary.nvim'}},
+        config = function()
+            require('telescope').setup {
+                defaults = {
+                    file_ignore_patterns = {'node_modules', 'yarn.lock'}
+                }
+            }
+        end
     }
 
     -- LSP and completion
@@ -26,21 +34,19 @@ return require('packer').startup(function()
     use {'p00f/nvim-ts-rainbow'}
     use {'RRethy/vim-illuminate'}
     use {
-        "folke/trouble.nvim",
-        config = function() require("trouble").setup {} end
+        'folke/trouble.nvim',
+        config = function() require('trouble').setup {} end
     }
+    use {'windwp/nvim-ts-autotag'}
 
     -- Which key
     use {
-        "folke/which-key.nvim",
-        config = function() require("which-key").setup {} end
+        'folke/which-key.nvim',
+        config = function() require('which-key').setup {} end
     }
 
     -- Smooth Scroll
-    use {
-        'karb94/neoscroll.nvim'
-        -- config = function() require('neoscroll').setup() end
-    }
+    use {'karb94/neoscroll.nvim'}
 
     -- Lua development
     use {'tjdevries/nlua.nvim'}
@@ -52,16 +58,12 @@ return require('packer').startup(function()
     use {'tpope/vim-fugitive'}
 
     -- Commentary
-    use {'tpope/vim-commentary'}
+    use {'b3nj5m1n/kommentary'}
 
     -- Horizon Colorschme
     use {'ntk148v/vim-horizon'}
 
-    -- Floating Terminal
-    use {'voldikss/vim-floaterm'}
-
     -- Auto Pairs
-    -- use {'jiangmiao/auto-pairs'}
     use {'windwp/nvim-autopairs'}
 
     -- Dev Icons for Status Line
@@ -82,9 +84,6 @@ return require('packer').startup(function()
     -- Nvim Tree
     use {'kyazdani42/nvim-tree.lua'}
 
-    -- Tabs
-    -- use {'romgrk/barbar.nvim'}
-
     -- LSP Signaature
     use {'ray-x/lsp_signature.nvim'}
 
@@ -101,17 +100,31 @@ return require('packer').startup(function()
     use {'xabikos/vscode-javascript'}
     use {'golang/vscode-go'}
     use {'rust-lang/vscode-rust'}
+    use {'dsznajder/vscode-es7-javascript-react-snippets'}
 
-    -- Bufferline
+    -- Buffer
     use {'akinsho/nvim-bufferline.lua'}
 
-    -- Refactor
-    use {'nvim-treesitter/nvim-treesitter-refactor'}
+    -- Surround
+    use {
+        'blackCauldron7/surround.nvim',
+        config = function()
+            require'surround'.setup {mappings_style = 'surround'}
+        end
+    }
 
-    -- Discord RPC
-    -- use {'andweeb/presence.nvim'}
+    -- Git Signs
+    use {
+        'lewis6991/gitsigns.nvim',
+        requires = {'nvim-lua/plenary.nvim'},
+        config = function() require('gitsigns').setup() end
+    }
 
-    -- Dashboard
-    -- use {'glepnir/dashboard-nvim'}
+    -- Tasks
+    use {'skywind3000/asyncrun.vim'}
+    use {'skywind3000/asynctasks.vim'}
+
+    -- FTerm
+    use {'numtostr/FTerm.nvim'}
 
 end)

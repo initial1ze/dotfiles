@@ -69,6 +69,18 @@ end
 time([[try_loadstring definition]], false)
 time([[Defining packer_plugins]], true)
 _G.packer_plugins = {
+  ["FTerm.nvim"] = {
+    loaded = true,
+    path = "/home/initial1ze/.local/share/nvim/site/pack/packer/start/FTerm.nvim"
+  },
+  ["asyncrun.vim"] = {
+    loaded = true,
+    path = "/home/initial1ze/.local/share/nvim/site/pack/packer/start/asyncrun.vim"
+  },
+  ["asynctasks.vim"] = {
+    loaded = true,
+    path = "/home/initial1ze/.local/share/nvim/site/pack/packer/start/asynctasks.vim"
+  },
   ["awesome-vim-colorschemes"] = {
     loaded = true,
     path = "/home/initial1ze/.local/share/nvim/site/pack/packer/start/awesome-vim-colorschemes"
@@ -85,6 +97,15 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/initial1ze/.local/share/nvim/site/pack/packer/start/friendly-snippets"
   },
+  ["gitsigns.nvim"] = {
+    config = { "\27LJ\2\n6\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\rgitsigns\frequire\0" },
+    loaded = true,
+    path = "/home/initial1ze/.local/share/nvim/site/pack/packer/start/gitsigns.nvim"
+  },
+  gruvbox = {
+    loaded = true,
+    path = "/home/initial1ze/.local/share/nvim/site/pack/packer/start/gruvbox"
+  },
   ["gruvbox-material"] = {
     loaded = true,
     path = "/home/initial1ze/.local/share/nvim/site/pack/packer/start/gruvbox-material"
@@ -92,6 +113,10 @@ _G.packer_plugins = {
   ["indent-blankline.nvim"] = {
     loaded = true,
     path = "/home/initial1ze/.local/share/nvim/site/pack/packer/start/indent-blankline.nvim"
+  },
+  kommentary = {
+    loaded = true,
+    path = "/home/initial1ze/.local/share/nvim/site/pack/packer/start/kommentary"
   },
   ["lsp_signature.nvim"] = {
     loaded = true,
@@ -108,6 +133,10 @@ _G.packer_plugins = {
   ["lualine.nvim"] = {
     loaded = true,
     path = "/home/initial1ze/.local/share/nvim/site/pack/packer/start/lualine.nvim"
+  },
+  ["material.nvim"] = {
+    loaded = true,
+    path = "/home/initial1ze/.local/share/nvim/site/pack/packer/start/material.nvim"
   },
   ["neoscroll.nvim"] = {
     loaded = true,
@@ -145,9 +174,9 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/initial1ze/.local/share/nvim/site/pack/packer/start/nvim-treesitter"
   },
-  ["nvim-treesitter-refactor"] = {
+  ["nvim-ts-autotag"] = {
     loaded = true,
-    path = "/home/initial1ze/.local/share/nvim/site/pack/packer/start/nvim-treesitter-refactor"
+    path = "/home/initial1ze/.local/share/nvim/site/pack/packer/start/nvim-ts-autotag"
   },
   ["nvim-ts-rainbow"] = {
     loaded = true,
@@ -174,7 +203,13 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/initial1ze/.local/share/nvim/site/pack/packer/start/python-snippets"
   },
+  ["surround.nvim"] = {
+    config = { "\27LJ\2\nU\0\0\3\0\4\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0B\0\2\1K\0\1\0\1\0\1\19mappings_style\rsurround\nsetup\rsurround\frequire\0" },
+    loaded = true,
+    path = "/home/initial1ze/.local/share/nvim/site/pack/packer/start/surround.nvim"
+  },
   ["telescope.nvim"] = {
+    config = { "\27LJ\2\nä\1\0\0\5\0\b\0\v6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\6\0005\3\4\0005\4\3\0=\4\5\3=\3\a\2B\0\2\1K\0\1\0\rdefaults\1\0\0\25file_ignore_patterns\1\0\0\1\3\0\0\17node_modules\14yarn.lock\nsetup\14telescope\frequire\0" },
     loaded = true,
     path = "/home/initial1ze/.local/share/nvim/site/pack/packer/start/telescope.nvim"
   },
@@ -186,10 +221,6 @@ _G.packer_plugins = {
     config = { "\27LJ\2\n9\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0004\2\0\0B\0\2\1K\0\1\0\nsetup\ftrouble\frequire\0" },
     loaded = true,
     path = "/home/initial1ze/.local/share/nvim/site/pack/packer/start/trouble.nvim"
-  },
-  ["vim-commentary"] = {
-    loaded = true,
-    path = "/home/initial1ze/.local/share/nvim/site/pack/packer/start/vim-commentary"
   },
   ["vim-dispatch"] = {
     loaded = true,
@@ -223,6 +254,10 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/initial1ze/.local/share/nvim/site/pack/packer/start/vim-vsnip-integ"
   },
+  ["vscode-es7-javascript-react-snippets"] = {
+    loaded = true,
+    path = "/home/initial1ze/.local/share/nvim/site/pack/packer/start/vscode-es7-javascript-react-snippets"
+  },
   ["vscode-go"] = {
     loaded = true,
     path = "/home/initial1ze/.local/share/nvim/site/pack/packer/start/vscode-go"
@@ -247,6 +282,10 @@ _G.packer_plugins = {
 }
 
 time([[Defining packer_plugins]], false)
+-- Config for: telescope.nvim
+time([[Config for telescope.nvim]], true)
+try_loadstring("\27LJ\2\nä\1\0\0\5\0\b\0\v6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\6\0005\3\4\0005\4\3\0=\4\5\3=\3\a\2B\0\2\1K\0\1\0\rdefaults\1\0\0\25file_ignore_patterns\1\0\0\1\3\0\0\17node_modules\14yarn.lock\nsetup\14telescope\frequire\0", "config", "telescope.nvim")
+time([[Config for telescope.nvim]], false)
 -- Config for: which-key.nvim
 time([[Config for which-key.nvim]], true)
 try_loadstring("\27LJ\2\n;\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0004\2\0\0B\0\2\1K\0\1\0\nsetup\14which-key\frequire\0", "config", "which-key.nvim")
@@ -255,6 +294,14 @@ time([[Config for which-key.nvim]], false)
 time([[Config for trouble.nvim]], true)
 try_loadstring("\27LJ\2\n9\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0004\2\0\0B\0\2\1K\0\1\0\nsetup\ftrouble\frequire\0", "config", "trouble.nvim")
 time([[Config for trouble.nvim]], false)
+-- Config for: gitsigns.nvim
+time([[Config for gitsigns.nvim]], true)
+try_loadstring("\27LJ\2\n6\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\rgitsigns\frequire\0", "config", "gitsigns.nvim")
+time([[Config for gitsigns.nvim]], false)
+-- Config for: surround.nvim
+time([[Config for surround.nvim]], true)
+try_loadstring("\27LJ\2\nU\0\0\3\0\4\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0B\0\2\1K\0\1\0\1\0\1\19mappings_style\rsurround\nsetup\rsurround\frequire\0", "config", "surround.nvim")
+time([[Config for surround.nvim]], false)
 if should_profile then save_profiles() end
 
 end)

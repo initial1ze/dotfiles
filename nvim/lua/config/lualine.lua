@@ -1,3 +1,6 @@
-options = {theme = 'ayu_dark'}
+options = {theme = 'material-nvim'}
 
-require('lualine').setup {options = options}
+require('lualine').setup {
+    options = options,
+    extensions = {'quickfix', 'nvim-tree'}
+}
