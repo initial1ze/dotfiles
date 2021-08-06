@@ -1,5 +1,5 @@
-[submodule "kitty/kitty/kitty-themes"]
-	path = kitty/kitty/kitty-themes
+[submodule "kitty/kitty-themes"]
+	path = kitty/kitty-themes
 	url = https://github.com/dexpota/kitty-themes.git
 [submodule ".oh-my-zsh"]
 	path = .oh-my-zsh
