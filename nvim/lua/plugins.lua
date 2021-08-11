@@ -48,6 +48,9 @@ return require('packer').startup(function()
     -- Smooth Scroll
     use {'karb94/neoscroll.nvim'}
 
+    -- Buffer
+    use {'akinsho/nvim-bufferline.lua'}
+
     -- Lua development
     use {'tjdevries/nlua.nvim'}
 
@@ -102,17 +105,6 @@ return require('packer').startup(function()
     use {'rust-lang/vscode-rust'}
     use {'dsznajder/vscode-es7-javascript-react-snippets'}
 
-    -- Buffer
-    use {'akinsho/nvim-bufferline.lua'}
-
-    -- Surround
-    use {
-        'blackCauldron7/surround.nvim',
-        config = function()
-            require'surround'.setup {mappings_style = 'surround'}
-        end
-    }
-
     -- Git Signs
     use {
         'lewis6991/gitsigns.nvim',
@@ -124,7 +116,10 @@ return require('packer').startup(function()
     use {'skywind3000/asyncrun.vim'}
     use {'skywind3000/asynctasks.vim'}
 
-    -- FTerm
-    use {'numtostr/FTerm.nvim'}
+    -- Better Wildmenu
+    use {'gelguy/wilder.nvim'}
+
+    -- Terminal
+    use {'akinsho/nvim-toggleterm.lua'}
 
 end)

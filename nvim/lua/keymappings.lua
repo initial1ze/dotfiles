@@ -68,6 +68,10 @@ utils.map('n', '<Nop>', '<Down>')
 utils.map('n', '<Nop>', '<Right>')
 utils.map('n', '<Nop>', '<Left>') ]]
 vim.cmd [[
+inoremap <Up> <Nop>
+inoremap <Down> <Nop>
+inoremap <Left> <Nop>
+inoremap <Right> <Nop>
 noremap <Up> <Nop>
 noremap <Down> <Nop>
 noremap <Left> <Nop>
@@ -76,3 +80,17 @@ noremap <Right> <Nop>
 
 -- Custom commands
 utils.map('n', '//', '<cmd>Ioe<cr>')
+
+-- Parenthesis/bracket expanding
+utils.map('v', '$1', '<esc>`>a\'<esc>`<i\'<esc>')
+utils.map('v', '$2', '<esc>`>a)<esc>`<i(<esc>')
+utils.map('v', '$3', '<esc>`>a\"<esc>`<i\"<esc>')
+utils.map('v', '$4', '<esc>`>a}<esc>`<i{<esc>')
+utils.map('v', '$5', '<esc>`>a]<esc>`<i[<esc>')
+
+-- Move visual blocks with proper indentation
+utils.map('v', 'J', '<cmd>m \'>+1<cr>gv=gv')
+utils.map('v', 'K', '<cmd>m \'<-2<cr>gv=gv')
+
+-- Move current block to void register
+utils.map('v', '<leader>p', '\"_dP')

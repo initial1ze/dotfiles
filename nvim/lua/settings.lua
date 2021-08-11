@@ -5,6 +5,7 @@ local indent = 4
 
 cmd 'syntax enable'
 cmd 'filetype plugin indent on'
+cmd 'set incsearch'
 utils.opt('b', 'expandtab', true)
 utils.opt('b', 'shiftwidth', indent)
 utils.opt('b', 'smartindent', true)
@@ -20,8 +21,10 @@ utils.opt('o', 'wildmode', 'list:longest')
 utils.opt('w', 'number', true)
 utils.opt('w', 'relativenumber', true)
 utils.opt('o', 'clipboard', 'unnamed,unnamedplus')
+utils.opt('o', 'viewoptions', 'folds,cursor')
 
 -- Foldiing
+utils.map('o', 'foldmethod', 'manual')
 --[[ utils.opt('o', 'foldmethod', 'expr')
 utils.opt('o', 'foldexpr', 'nvim_treesitter#foldexpr()') ]]
 
@@ -29,7 +32,12 @@ utils.opt('o', 'foldexpr', 'nvim_treesitter#foldexpr()') ]]
 vim.api.nvim_exec([[
 augroup FormatAutogroup
   autocmd!
-  autocmd BufWritePost *.py,*.cpp,*.c,*.cc,*.js,*.jsx,*.ts,*.tsx,*.rs,*.html,*.css FormatWrite
+  autocmd BufWritePost *.lua,*.py,*.cpp,*.c,*.cc,*.js,*.jsx,*.ts,*.tsx,*.rs,*.html,*.css FormatWrite
+augroup END
+augroup remember_folds
+  autocmd!
+  autocmd BufWinLeave *.* mkview
+  autocmd BufWinEnter *.* silent! loadview
 augroup END
 ]], true)
 

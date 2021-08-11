@@ -91,11 +91,7 @@ require('formatter').setup({
         },
         python = {
             function()
-                return {
-                    exe = 'yapf',
-                    -- args = {},
-                    stdin = true
-                }
+                return {exe = 'black', args = {'-'}, stdin = true}
             end
         },
         cpp = {
