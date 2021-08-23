@@ -19,8 +19,16 @@ super + Escape
 	pkill -USR1 -x sxhkd
 
 # firefox
-super + space + f
+super + space
     firefox
+
+# discord
+super + space + v
+    discord
+
+# spotify
+super + space + s
+    spotify
 
 # sxhkd help
 super + slash

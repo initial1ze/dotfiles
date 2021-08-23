@@ -3,12 +3,12 @@
 pgrep -x sxhkd > /dev/null || sxhkd &
 
 picom &
-feh --bg-fill ~/Downloads/84_nologo.jpg
+feh --bg-fill ~/Downloads/81_nologo.jpg
 $HOME/.config/polybar/launch.sh
 
 bspc monitor -d I II III IV V
 
-# bspc config border_width         2
+bspc config border_width         0
 bspc config window_gap          12
 
 bspc config split_ratio          0.52

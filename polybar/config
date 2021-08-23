@@ -36,7 +36,8 @@ height = 27
 radius = 6.0
 fixed-center = false
 
-background = ${colors.background}
+background = #00
+; background = ${colors.background}
 foreground = ${colors.foreground}
 
 line-size = 3
@@ -45,28 +46,29 @@ line-color = #f00
 border-size = 4
 border-color = #00000000
 
-padding-left = 3
-padding-right = 3
+; padding-left = 3
+padding-right = 2
 
 module-margin-left = 1
-module-margin-right = 2
+module-margin-right = 1
 
-; font-0 = "Tamsyn:pixelsize=12;0"
-; font-1 = "Roboto:size=11:weight=bold;2"
+font-0 = "FiraCode Nerd Font Mono:size=12;1"
+font-1 = "Tamsyn:pixelsize=12;0"
+font-2 = "Roboto:size=11:weight=bold;2"
 ; font-2 = "Noto Sans:size=11;1"
-font-0 = "Noto Sans:size=11;1"
-font-1 = unifont:fontformat=truetype:size=12:antialias=false;0
-font-2 = siji:pixelsize=16;1
+; font-0 = "Noto Sans:size=11;1"
+; font-1 = unifont:fontformat=truetype:size=12:antialias=false;0
+font-3 = siji:pixelsize=16;1
 
-modules-left = bspwm spotify
-modules-center = 
-modules-right = backlight-acpi alsa wlan battery date
+modules-left = bspwm xwindow 
+; modules-center = xwindow
+modules-right = spotify date pulseaudio wlan battery powermenu
 
 tray-position = right
 tray-padding = 2
 ;tray-background = #0063ff
 
-;wm-restack = bspwm
+wm-restack = bspwm
 ;wm-restack = i3
 
 ;override-redirect = true
@@ -82,7 +84,18 @@ cursor-scroll = ns-resize
 
 [module/xwindow]
 type = internal/xwindow
-label = %title:0:30:...%
+label = %title:0:50:...%
+; Available tags:
+;   <label> (default)
+; format = <label>
+; format-foreground = {colors.foreground}
+; format-padding = 4
+
+; ; Available tokens:
+; ;   %title%
+; ; Default: %title%
+; label = %title%
+; label-maxlen = 50
 
 [module/xkeyboard]
 type = internal/xkeyboard
@@ -113,21 +126,22 @@ label-unmounted-foreground = ${colors.foreground-alt}
 [module/bspwm]
 type = internal/bspwm
 
-; label-focused = %index%
+label-focused = %index%
 label-focused-background = ${colors.background-alt}
-label-focused-underline= ${colors.primary}
-label-focused-padding = 2
+; label-focused-underline= ${colors.primary}
+label-focused-underline = #545ba2
+label-focused-padding = 1
 
-; label-occupied = %index%
-label-occupied-padding = 2
+label-occupied = %index%
+label-occupied-padding = 1
 
-; label-urgent = %index%!
+label-urgent = %index%!
 label-urgent-background = ${colors.alert}
-label-urgent-padding = 2
+label-urgent-padding = 1
 
-; label-empty = %index%
+label-empty = %index%
 label-empty-foreground = ${colors.foreground-alt}
-label-empty-padding = 2
+label-empty-padding = 1
 
 ws-icon-0 = I
 ws-icon-1 = II
@@ -232,22 +246,23 @@ type = internal/network
 interface = wlo1
 interval = 3.0
 
-format-connected = <ramp-signal> <label-connected>
-format-connected-underline = #9f78e1
+format-connected = %{A1:networkmanager_dmenu:}直 <label-connected>%{A}
+format-connected-underline = #545ba2
 label-connected = %essid%
 
-format-disconnected =
+format-disconnected = %{A1:networkmanager_dmenu:}睊 %{A}
+format-disconnected-underline = #545ba2
 ;format-disconnected = <label-disconnected>
 ;format-disconnected-underline = ${self.format-connected-underline}
 ;label-disconnected = %ifname% disconnected
 ;label-disconnected-foreground = ${colors.foreground-alt}
 
-ramp-signal-0 = 
-ramp-signal-1 = 
-ramp-signal-2 = 
-ramp-signal-3 = 
-ramp-signal-4 = 
-ramp-signal-foreground = ${colors.foreground-alt}
+; ramp-signal-0 = 
+; ramp-signal-1 = 
+; ramp-signal-2 = 
+; ramp-signal-3 = 
+; ramp-signal-4 = 
+; ramp-signal-foreground = ${colors.foreground-alt}
 
 [module/eth]
 type = internal/network
@@ -269,44 +284,83 @@ format-disconnected =
 type = internal/date
 interval = 5
 
-date =
-date-alt = " %Y-%m-%d"
+date = %d-%m-%Y
+date-alt = "%d-%m-%Y"
 
 time = %H:%M
-time-alt = %H:%M:%S
+time-alt = %H:%M
 
-format-prefix = 
-format-prefix-foreground = ${colors.foreground-alt}
-format-underline = #0a6cf5
+format =  <label>
+; format-prefix = 
+; format-prefix-foreground = ${colors.foreground-alt}
+format-underline = #545ba2
 
-label = %date% %time%
+label = %time% | %date%
 
 [module/pulseaudio]
 type = internal/pulseaudio
+sink = alsa_output.pci-0000_00_1f.3.analog-stereo
+use-ui-max = true
+interval = 5
 
-format-volume = <label-volume> <bar-volume>
-label-volume = VOL %percentage%%
-label-volume-foreground = ${root.foreground}
+; Available tags:
+;   <label-volume> (default)
+;   <ramp-volume>
+;   <bar-volume>
+format-volume = <ramp-volume> <label-volume>
 
-label-muted = 🔇 muted
+; Available tags:
+;   <label-muted> (default)
+;   <ramp-volume>
+;   <bar-volume>
+;format-muted = <label-muted>
+
+; Available tokens:
+;   %percentage% (default)
+;   %decibels%
+;label-volume = %percentage%%
+
+; Available tokens:
+;   %percentage% (default)
+;   %decibels%
+label-muted = 婢 muted
 label-muted-foreground = #666
+format-volume-underline = #545ba2
 
-bar-volume-width = 10
-bar-volume-foreground-0 = #55aa55
-bar-volume-foreground-1 = #55aa55
-bar-volume-foreground-2 = #55aa55
-bar-volume-foreground-3 = #55aa55
-bar-volume-foreground-4 = #55aa55
-bar-volume-foreground-5 = #f5a70a
-bar-volume-foreground-6 = #ff5555
-bar-volume-gradient = false
-bar-volume-indicator = |
-bar-volume-indicator-font = 2
-bar-volume-fill = ─
-bar-volume-fill-font = 2
-bar-volume-empty = ─
-bar-volume-empty-font = 2
-bar-volume-empty-foreground = ${colors.foreground-alt}
+; Only applies if <ramp-volume> is used
+ramp-volume-0 = 
+ramp-volume-1 = 
+ramp-volume-2 = 墳
+
+; Right and Middle click
+click-right = pavucontrol
+; click-middle = 
+
+
+
+; format-volume = <label-volume> <bar-volume>
+; label-volume = VOL %percentage%%
+; label-volume-foreground = ${root.foreground}
+
+; label-muted = 🔇 muted
+; label-muted-foreground = #666
+
+; bar-volume-width = 10
+; bar-volume-foreground-0 = #55aa55
+; bar-volume-foreground-1 = #55aa55
+; bar-volume-foreground-2 = #55aa55
+; bar-volume-foreground-3 = #55aa55
+; bar-volume-foreground-4 = #55aa55
+; bar-volume-foreground-5 = #f5a70a
+; bar-volume-foreground-6 = #ff5555
+; bar-volume-gradient = false
+; bar-volume-indicator = |
+; bar-volume-indicator-font = 2
+; bar-volume-fill = ─
+; bar-volume-fill-font = 2
+; bar-volume-empty = ─
+; bar-volume-empty-font = 2
+; bar-volume-empty-foreground = ${colors.foreground-alt}
 
 [module/alsa]
 type = internal/alsa
@@ -342,32 +396,40 @@ battery = BAT1
 adapter = ADP1
 full-at = 98
 
-format-charging = <animation-charging> <label-charging>
-format-charging-underline = #ffb52a
+format-charging =  <label-charging>
+format-discharging = <ramp-capacity> <label-discharging>
+; ; format-charging-underline = #ffb52a
+format-charging-underline = #545ba2
+format-discharging-underline = #545ba2
+format-full-underline = #545ba2
 
-format-discharging = <animation-discharging> <label-discharging>
-format-discharging-underline = ${self.format-charging-underline}
+; format-discharging = <animation-discharging> <label-discharging>
+; format-discharging-underline = ${self.format-charging-underline}
 
-format-full-prefix = " "
-format-full-prefix-foreground = ${colors.foreground-alt}
-format-full-underline = ${self.format-charging-underline}
+format-full =  <label-full>
 
-ramp-capacity-0 = 
-ramp-capacity-1 = 
-ramp-capacity-2 = 
-ramp-capacity-foreground = ${colors.foreground-alt}
+; format-full-prefix = " "
+; ; format-full-prefix-foreground = ${colors.foreground-alt}
+; format-full-underline = ${self.format-charging-underline}
 
-animation-charging-0 = 
-animation-charging-1 = 
-animation-charging-2 = 
-animation-charging-foreground = ${colors.foreground-alt}
-animation-charging-framerate = 750
+ramp-capacity-0 =  
+ramp-capacity-1 = 
+ramp-capacity-2 = 
+ramp-capacity-3 = 
+ramp-capacity-4 = 
+; ; ramp-capacity-foreground = ${colors.foreground-alt}
 
-animation-discharging-0 = 
-animation-discharging-1 = 
-animation-discharging-2 = 
-animation-discharging-foreground = ${colors.foreground-alt}
-animation-discharging-framerate = 750
+; animation-charging-0 = 
+; animation-charging-1 = 
+; animation-charging-2 = 
+; ; animation-charging-foreground = ${colors.foreground-alt}
+; animation-charging-framerate = 750
+
+; animation-discharging-0 = 
+; animation-discharging-1 = 
+; animation-discharging-2 = 
+; ; animation-discharging-foreground = ${colors.foreground-alt}
+; animation-discharging-framerate = 750
 
 [module/temperature]
 type = internal/temperature
@@ -410,10 +472,10 @@ menu-0-1-exec = menu-open-2
 menu-1-0 = cancel
 menu-1-0-exec = menu-open-0
 menu-1-1 = reboot
-menu-1-1-exec = sudo reboot
+menu-1-1-exec = shutdown -r now
 
 menu-2-0 = power off
-menu-2-0-exec = sudo poweroff
+menu-2-0-exec = shutdown -h now
 menu-2-1 = cancel
 menu-2-1-exec = menu-open-0
 
@@ -423,11 +485,16 @@ interval = 1
 format-prefix = " "
 format = <label>
 exec = python3 $HOME/.config/polybar/scripts/spotify -f '{play_pause} {song} - {artist}'
-format-underline = #1db954
+format-underline = #545ba2 
+margin-right = 5
 ;control players (optional)
 click-left = playerctl --player=spotify play-pause 
 click-right = playerctl --player=spotify next 
 click-middle = playerctl --player=spotify previous 
+
+[module/redshift]
+type = custom/script
+format-prefix = " "  
 
 [settings]
 screenchange-reload = true
