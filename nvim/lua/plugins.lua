@@ -15,14 +15,7 @@ return require('packer').startup(function()
     -- Fuzzy finder
     use {
         'nvim-telescope/telescope.nvim',
-        requires = {{'nvim-lua/popup.nvim'}, {'nvim-lua/plenary.nvim'}},
-        config = function()
-            require('telescope').setup {
-                defaults = {
-                    file_ignore_patterns = {'node_modules', 'yarn.lock'}
-                }
-            }
-        end
+        requires = {{'nvim-lua/popup.nvim'}, {'nvim-lua/plenary.nvim'}}
     }
 
     -- LSP and completion
@@ -38,6 +31,7 @@ return require('packer').startup(function()
         config = function() require('trouble').setup {} end
     }
     use {'windwp/nvim-ts-autotag'}
+    use {'simrat39/symbols-outline.nvim'}
 
     -- Which key
     use {
@@ -121,5 +115,13 @@ return require('packer').startup(function()
 
     -- Terminal
     use {'akinsho/nvim-toggleterm.lua'}
+
+    -- Speed up
+    use {'lewis6991/impatient.nvim'}
+
+    -- DAP
+    --[[ use {'mfussenegger/nvim-dap'}
+    use {'nvim-telescope/telescope-dap.nvim'}
+    use {'mfussenegger/nvim-dap-python'} -- Python ]]
 
 end)

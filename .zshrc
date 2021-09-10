@@ -1,21 +1,13 @@
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
-# source $HOME/.bashrc
-# export PATH="$HOME/.local/nvim/bin:$PATH"
 
 # Path to your oh-my-zsh installation.
-export ZSH="/home/initial1ze/.oh-my-zsh"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="robbyrussell"
-
-autoload -Uz compinit
-compinit
-# Completion for kitty
-kitty + complete setup zsh | source /dev/stdin
+# ZSH_THEME="robbyrussell"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -77,12 +69,6 @@ kitty + complete setup zsh | source /dev/stdin
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git
-	zsh-syntax-highlighting
-	zsh-autosuggestions
-)
-
-source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
@@ -109,16 +95,30 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+# fpath+=${ZDOTDIR:-~}/.zsh_functions
+# source /home/initial1ze/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
+HISTFILE=~/.zsh_history
+HISTSIZE=10000
+SAVEHIST=10000
+setopt appendhistory
 
+source /home/initial1ze/.zsh/zsh-history-substring-search/zsh-history-substring-search.zsh
+bindkey '^[[A' history-substring-search-up
+bindkey '^[[B' history-substring-search-down
+bindkey -v
 
-# init starship
-# source <("/home/initial1ze/.cargo/bin/starship" init zsh --print-full-init)
-setopt PROMPT_CR PROMPT_SP; PROMPT_EOL_MARK=""
+kitty + complete setup zsh | source /dev/stdin
+source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
+alias ls='ls --color=auto'
 
-
-source <("/home/initial1ze/.cargo/bin/starship" init zsh --print-full-init)
-
-alias luamake=/home/initial1ze/Downloads/lua-language-server/3rd/luamake/luamake
+alias update='sudo apt update;sudo apt upgrade'
+alias bri='xrandr --output eDP-1 --brightness'
 alias cf='cd ~/Code/CF'
-# export CUSTOM_NVIM_PATH=/usr/local/bin/nvim.appimage
+alias co='g++ main.cpp -o main'
+alias run='./main 2> debug'
+alias debug='cat debug'
+alias xclip="xclip -selection c"
+
+eval "$(starship init zsh)"
+source /home/initial1ze/Downloads/gitthings/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh

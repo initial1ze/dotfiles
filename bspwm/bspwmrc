@@ -3,6 +3,7 @@
 pgrep -x sxhkd > /dev/null || sxhkd &
 
 picom &
+dunst &
 feh --bg-fill ~/Downloads/81_nologo.jpg
 $HOME/.config/polybar/launch.sh
 

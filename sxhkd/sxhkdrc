@@ -22,13 +22,12 @@ super + Escape
 super + space
     firefox
 
-# discord
-super + space + v
-    discord
+# screenshot
+Print
+    gnome-screenshot   
 
-# spotify
-super + space + s
-    spotify
+super + Print
+    gnome-screenshot -a
 
 # sxhkd help
 super + slash

@@ -70,12 +70,16 @@ time([[try_loadstring definition]], false)
 time([[Defining packer_plugins]], true)
 _G.packer_plugins = {
   ["asyncrun.vim"] = {
-    loaded = true,
-    path = "/home/initial1ze/.local/share/nvim/site/pack/packer/start/asyncrun.vim"
+    commands = { "AsyncTask", "AsyncTaskEdit" },
+    loaded = false,
+    needs_bufread = false,
+    path = "/home/initial1ze/.local/share/nvim/site/pack/packer/opt/asyncrun.vim"
   },
   ["asynctasks.vim"] = {
-    loaded = true,
-    path = "/home/initial1ze/.local/share/nvim/site/pack/packer/start/asynctasks.vim"
+    commands = { "AsyncTask", "AsyncTaskEdit" },
+    loaded = false,
+    needs_bufread = false,
+    path = "/home/initial1ze/.local/share/nvim/site/pack/packer/opt/asynctasks.vim"
   },
   ["awesome-vim-colorschemes"] = {
     loaded = true,
@@ -105,6 +109,10 @@ _G.packer_plugins = {
   ["gruvbox-material"] = {
     loaded = true,
     path = "/home/initial1ze/.local/share/nvim/site/pack/packer/start/gruvbox-material"
+  },
+  ["impatient.nvim"] = {
+    loaded = true,
+    path = "/home/initial1ze/.local/share/nvim/site/pack/packer/start/impatient.nvim"
   },
   ["indent-blankline.nvim"] = {
     loaded = true,
@@ -203,12 +211,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/initial1ze/.local/share/nvim/site/pack/packer/start/python-snippets"
   },
-  ["rose-pine"] = {
+  ["symbols-outline.nvim"] = {
     loaded = true,
-    path = "/home/initial1ze/.local/share/nvim/site/pack/packer/start/rose-pine"
+    path = "/home/initial1ze/.local/share/nvim/site/pack/packer/start/symbols-outline.nvim"
   },
   ["telescope.nvim"] = {
-    config = { "\27LJ\2\nä\1\0\0\5\0\b\0\v6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\6\0005\3\4\0005\4\3\0=\4\5\3=\3\a\2B\0\2\1K\0\1\0\rdefaults\1\0\0\25file_ignore_patterns\1\0\0\1\3\0\0\17node_modules\14yarn.lock\nsetup\14telescope\frequire\0" },
     loaded = true,
     path = "/home/initial1ze/.local/share/nvim/site/pack/packer/start/telescope.nvim"
   },
@@ -285,10 +292,6 @@ time([[Defining packer_plugins]], false)
 time([[Config for gitsigns.nvim]], true)
 try_loadstring("\27LJ\2\n6\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\rgitsigns\frequire\0", "config", "gitsigns.nvim")
 time([[Config for gitsigns.nvim]], false)
--- Config for: telescope.nvim
-time([[Config for telescope.nvim]], true)
-try_loadstring("\27LJ\2\nä\1\0\0\5\0\b\0\v6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\6\0005\3\4\0005\4\3\0=\4\5\3=\3\a\2B\0\2\1K\0\1\0\rdefaults\1\0\0\25file_ignore_patterns\1\0\0\1\3\0\0\17node_modules\14yarn.lock\nsetup\14telescope\frequire\0", "config", "telescope.nvim")
-time([[Config for telescope.nvim]], false)
 -- Config for: trouble.nvim
 time([[Config for trouble.nvim]], true)
 try_loadstring("\27LJ\2\n9\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0004\2\0\0B\0\2\1K\0\1\0\nsetup\ftrouble\frequire\0", "config", "trouble.nvim")
@@ -297,6 +300,13 @@ time([[Config for trouble.nvim]], false)
 time([[Config for which-key.nvim]], true)
 try_loadstring("\27LJ\2\n;\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0004\2\0\0B\0\2\1K\0\1\0\nsetup\14which-key\frequire\0", "config", "which-key.nvim")
 time([[Config for which-key.nvim]], false)
+
+-- Command lazy-loads
+time([[Defining lazy-load commands]], true)
+pcall(vim.cmd, [[command -nargs=* -range -bang -complete=file AsyncTask lua require("packer.load")({'asyncrun.vim', 'asynctasks.vim'}, { cmd = "AsyncTask", l1 = <line1>, l2 = <line2>, bang = <q-bang>, args = <q-args> }, _G.packer_plugins)]])
+pcall(vim.cmd, [[command -nargs=* -range -bang -complete=file AsyncTaskEdit lua require("packer.load")({'asyncrun.vim', 'asynctasks.vim'}, { cmd = "AsyncTaskEdit", l1 = <line1>, l2 = <line2>, bang = <q-bang>, args = <q-args> }, _G.packer_plugins)]])
+time([[Defining lazy-load commands]], false)
+
 if should_profile then save_profiles() end
 
 end)

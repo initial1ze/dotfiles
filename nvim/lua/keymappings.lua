@@ -44,9 +44,12 @@ utils.map('v', '>', '>gv', {noremap = true, silent = true})
 -- Nvim Tree
 utils.map('n', '<space>e', '<cmd>NvimTreeToggle<cr>')
 
+-- Symbols
+utils.map('n', '<space>l', '<cmd>SymbolsOutline<cr>')
+
 -- Tasks
 utils.map('n', '<F9>', '<cmd>AsyncTask file-build<cr>', {silent = true})
-utils.map('n', '<F8>', '<cmd>AsyncTask file-run<cr>', {silent = true})
+-- utils.map('n', '<F8>', '<cmd>AsyncTask file-run<cr>', {silent = true})
 
 utils.map('n', '<leader>fs', '<cmd>Telescope lsp_document_symbols<cr>')
 utils.map('n', '<leader>fr', '<cmd>Telescope lsp_references<cr>')
@@ -76,6 +79,14 @@ noremap <Up> <Nop>
 noremap <Down> <Nop>
 noremap <Left> <Nop>
 noremap <Right> <Nop>
+]]
+
+-- Resize panes
+vim.cmd [[
+nnoremap <M-j>    :resize -2<CR>
+nnoremap <M-k>    :resize +2<CR>
+nnoremap <M-h>    :vertical resize -2<CR>
+nnoremap <M-l>    :vertical resize +2<CR>
 ]]
 
 -- Custom commands

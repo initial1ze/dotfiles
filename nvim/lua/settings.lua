@@ -6,6 +6,7 @@ local indent = 4
 cmd 'syntax enable'
 cmd 'filetype plugin indent on'
 cmd 'set incsearch'
+cmd 'set mouse=a'
 utils.opt('b', 'expandtab', true)
 utils.opt('b', 'shiftwidth', indent)
 utils.opt('b', 'smartindent', true)
@@ -40,8 +41,6 @@ augroup remember_folds
   autocmd BufWinEnter *.* silent! loadview
 augroup END
 ]], true)
-
-vim.cmd 'let g:asyncrun_open = 6'
 
 -- Custom split stuff
 vim.cmd [[
