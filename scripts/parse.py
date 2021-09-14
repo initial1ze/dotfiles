@@ -5,7 +5,7 @@ from subprocess import check_output
 import re
 import sys
 
-
+# This part is taken from this repo https://github.com/emilgoldsmith/Codeforces-test-case-parser/blob/master/getTestCases.py
 class MyHTMLParser(HTMLParser):
     def __init__(self):
         HTMLParser.__init__(self)
