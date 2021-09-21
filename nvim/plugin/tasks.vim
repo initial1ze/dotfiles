@@ -20,7 +20,10 @@ function AsyncWrapper()
     wincmd l 
     2wincmd j
     silent e! output
-    wincmd h
+    wincmd k 
+    2wincmd l
+    silent e! error
+    3wincmd h
     call asyncrun#quickfix_toggle(2)
 endfunction
 

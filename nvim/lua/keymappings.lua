@@ -2,13 +2,13 @@
 local utils = require('utils')
 
 -- General
-utils.map('n', '<leader>cl', '<cmd>noh<cr>') -- Clear highlights
+utils.map('n', '<leader>c', '<cmd>noh<cr>') -- Clear highlights
 utils.map('i', 'jk', '<Esc>') -- jk to escape
 utils.map('i', 'kj', '<Esc>') -- kj to escape
 utils.map('t', 'jk', '<C-\\><C-n>') -- jk to escape
 utils.map('t', 'kj', '<C-\\><C-n>') -- jk to escape
 utils.map('t', '<esc>', '<C-\\><C-n>') -- jk to escape
-utils.map('n', '<leader>,', '<cmd>w<cr>') -- write to the buffer
+-- utils.map('n', '<leader>,', '<cmd>w<cr>') -- write to the buffer
 utils.map('n', '<leader>cp', '<cmd>%y+<cr>') -- Yank entire buffer
 
 -- Keep visual mode indenting
@@ -23,7 +23,10 @@ utils.map('t', '<leader>;', '<esc><cmd>FloatermToggle<cr>', {silent = true}) ]]
 utils.map('n', '<TAB>', '<cmd>BufferLineCycleNext<cr>', {silent = true})
 utils.map('n', '<S-TAB>', '<cmd>BufferLineCyclePrev<cr>', {silent = true})
 utils.map('n', '<C-c>', '<cmd>bdelete<cr>', {silent = true})
-utils.map('n', '<leader>b', '<cmd>BufferLinePick<cr>', {silent = true})
+utils.map('n', '<space>b', '<cmd>BufferLinePick<cr>', {silent = true})
+
+-- Register
+utils.map('n', '"', '<cmd>Telescope registers<cr>', {silent = true})
 
 -- Window Movement
 utils.map('n', '<C-h>', '<C-w>h', {silent = true})
@@ -44,9 +47,6 @@ utils.map('v', '>', '>gv', {noremap = true, silent = true})
 -- Nvim Tree
 utils.map('n', '<space>e', '<cmd>NvimTreeToggle<cr>')
 
--- Symbols
-utils.map('n', '<space>l', '<cmd>SymbolsOutline<cr>')
-
 -- Tasks
 utils.map('n', '<F9>', '<cmd>AsyncTask file-build<cr>', {silent = true})
 -- utils.map('n', '<F8>', '<cmd>AsyncTask file-run<cr>', {silent = true})
@@ -54,16 +54,6 @@ utils.map('n', '<F9>', '<cmd>AsyncTask file-build<cr>', {silent = true})
 utils.map('n', '<leader>fs', '<cmd>Telescope lsp_document_symbols<cr>')
 utils.map('n', '<leader>fr', '<cmd>Telescope lsp_references<cr>')
 utils.map('n', '<leader>fx', '<cmd>Telescope lsp_workspace_diagnostics<cr>')
-
--- Trouble mappings
-vim.cmd([[
-nnoremap <leader>xx <cmd>TroubleToggle<cr>
-nnoremap <leader>xw <cmd>TroubleToggle lsp_workspace_diagnostics<cr>
-nnoremap <leader>xd <cmd>TroubleToggle lsp_document_diagnostics<cr>
-nnoremap <leader>xq <cmd>TroubleToggle quickfix<cr>
-nnoremap <leader>xl <cmd>TroubleToggle loclist<cr>
-nnoremap <leader>xr <cmd>TroubleToggle lsp_references<cr>
-]])
 
 -- Diasble arropw keys for navigation
 --[[ utils.map('n', '<Nop>', '<Up>')

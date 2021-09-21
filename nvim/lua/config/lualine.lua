@@ -1,5 +1,5 @@
+---@diagnostic disable: lowercase-global
 options = {theme = 'tokyonight'}
-
 require('lualine').setup {
     options = options,
     sections = {
