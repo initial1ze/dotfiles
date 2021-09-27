@@ -61,6 +61,6 @@ nnoremap <silent> <F10> :call asyncrun#quickfix_toggle(2)<cr>
 " Source Session
 nnoremap <silent> <space>s :source Session.vim<cr>
 " Run the task
-nnoremap <silent> <F8> :call AsyncWrapper()<cr>
+nnoremap <silent> <F6> :call AsyncWrapper()<cr>
 " Fetch TestCases
 nnoremap <silent> <F7> :call GetInput()<cr>

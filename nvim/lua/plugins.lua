@@ -8,7 +8,8 @@ return require('packer').startup(function()
     use {'ayu-theme/ayu-vim'}
     use {'folke/tokyonight.nvim'}
     use {'rafi/awesome-vim-colorschemes'}
-    use 'marko-cerovac/material.nvim'
+    use {'marko-cerovac/material.nvim'}
+    use {'tiagovla/tokyodark.nvim'}
 
     -- Fuzzy finder
     use {
@@ -84,18 +85,10 @@ return require('packer').startup(function()
     use {'skywind3000/asyncrun.vim'}
     use {'skywind3000/asynctasks.vim'}
 
-    -- Better Wildmenu
-    -- use {'gelguy/wilder.nvim'}
-
     -- Terminal
     use {'akinsho/nvim-toggleterm.lua'}
 
     -- Speed up
     use {'lewis6991/impatient.nvim'}
-
-    -- DAP
-    --[[ use {'mfussenegger/nvim-dap'}
-    use {'nvim-telescope/telescope-dap.nvim'}
-    use {'mfussenegger/nvim-dap-python'} -- Python ]]
 
 end)

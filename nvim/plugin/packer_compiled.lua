@@ -85,6 +85,10 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/initial1ze/.local/share/nvim/site/pack/packer/start/ayu-vim"
   },
+  ["filetype.nvim"] = {
+    loaded = true,
+    path = "/home/initial1ze/.local/share/nvim/site/pack/packer/start/filetype.nvim"
+  },
   ["formatter.nvim"] = {
     loaded = true,
     path = "/home/initial1ze/.local/share/nvim/site/pack/packer/start/formatter.nvim"
@@ -182,6 +186,10 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/initial1ze/.local/share/nvim/site/pack/packer/start/popup.nvim"
   },
+  ["snippet-dog"] = {
+    loaded = true,
+    path = "/home/initial1ze/.local/share/nvim/site/pack/packer/start/snippet-dog"
+  },
   ["targets.vim"] = {
     loaded = true,
     path = "/home/initial1ze/.local/share/nvim/site/pack/packer/start/targets.vim"
@@ -189,6 +197,10 @@ _G.packer_plugins = {
   ["telescope.nvim"] = {
     loaded = true,
     path = "/home/initial1ze/.local/share/nvim/site/pack/packer/start/telescope.nvim"
+  },
+  ["tokyodark.nvim"] = {
+    loaded = true,
+    path = "/home/initial1ze/.local/share/nvim/site/pack/packer/start/tokyodark.nvim"
   },
   ["tokyonight.nvim"] = {
     loaded = true,
