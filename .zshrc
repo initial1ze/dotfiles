@@ -111,14 +111,16 @@ bindkey -v
 kitty + complete setup zsh | source /dev/stdin
 source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 alias ls='ls --color=auto'
+alias gh='eval "$(ssh-agent -s)" && ssh-add ~/.ssh/github_key'
+alias tmux='tmux -u'
 
 alias update='sudo apt update;sudo apt upgrade'
 alias bri='xrandr --output eDP-1 --brightness'
 alias cf='cd ~/Code/CF'
-alias co='g++ main.cpp -o main'
 alias run='./main 2> debug'
 alias debug='cat debug'
 alias xclip="xclip -selection c"
+alias co='g++ main.cpp -o main -Wall -Wextra -pedantic -std=c++11 -O2 -Wshadow -Wformat=2 -Wfloat-equal -Wconversion -Wlogical-op -Wshift-overflow=2 -Wduplicated-cond -Wcast-qual -Wcast-align -D_GLIBCXX_DEBUG -D_GLIBCXX_DEBUG_PEDANTIC -D_FORTIFY_SOURCE=2 -fsanitize=address -fsanitize=undefined -fno-sanitize-recover -fstack-protector'
 
 eval "$(starship init zsh)"
 source /home/initial1ze/Downloads/gitthings/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
