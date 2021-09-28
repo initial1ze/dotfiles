@@ -1,0 +1,11 @@
+#!/bin/bash
+
+if pgrep -x "spotifyd" > /dev/null
+then
+    killall "spotifyd"
+    spotifyd
+    spt
+else
+    spotifyd
+    spt
+fi
