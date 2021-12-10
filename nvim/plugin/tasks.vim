@@ -1,4 +1,7 @@
 let g:asyncrun_open = 2
+let g:cphdir = "/home/initial1ze/Code/CF"
+let g:cphlang = "cpp"
+" let g:cphborder = "floating"
 
 function! Cpsession()
     if expand('%:p') == "/home/initial1ze/Code/CF/main.cpp"

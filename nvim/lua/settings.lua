@@ -4,12 +4,12 @@ local cmd = vim.cmd
 local indent = 4
 
 cmd 'syntax enable'
-cmd 'filetype plugin indent on'
+cmd 'filetype indent on'
 cmd 'set incsearch'
 cmd 'set mouse=a'
 utils.opt('b', 'expandtab', true)
 utils.opt('b', 'shiftwidth', indent)
-utils.opt('b', 'smartindent', true)
+utils.opt('b', 'autoindent', true)
 utils.opt('b', 'tabstop', indent)
 utils.opt('o', 'hidden', true)
 utils.opt('o', 'ignorecase', true)

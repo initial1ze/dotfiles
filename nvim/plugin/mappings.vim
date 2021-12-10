@@ -24,6 +24,7 @@ nnoremap <space>q :qall<cr>
 
 " Jump to matching pair
 nnoremap Q %
+vnoremap Q %
 
 " Use Ctrl+j and Crtl+k to move blocks
 " nnoremap <space>j :m .+1<CR>==

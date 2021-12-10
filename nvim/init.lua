@@ -1,4 +1,3 @@
----@diagnostic disable: undefined-global
 require('impatient')
 -- Map Leader
 vim.g.mapleader = ','
@@ -38,6 +37,7 @@ require('config.autopairs')
 require('config.toggleterm')
 require('config.telescope')
 require('config.lsp-signature')
+require('config.tree')
 
 -- require('config.neoscroll')
 -- require('config.lspsaga')

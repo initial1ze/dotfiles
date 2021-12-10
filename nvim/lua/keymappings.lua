@@ -45,7 +45,7 @@ utils.map('v', '<', '<gv', {noremap = true, silent = true})
 utils.map('v', '>', '>gv', {noremap = true, silent = true})
 
 -- Nvim Tree
-utils.map('n', '<space>e', '<cmd>NvimTreeToggle<cr>')
+utils.map('n', '<leader>e', '<cmd>NvimTreeToggle<cr>')
 
 -- Tasks
 utils.map('n', '<F9>', '<cmd>AsyncTask file-build<cr>', {silent = true})

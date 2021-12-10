@@ -1,4 +1,3 @@
----@diagnostic disable: undefined-global
 return require('packer').startup(function()
 
     -- Packer can manage itself as an optional plugin
@@ -10,6 +9,8 @@ return require('packer').startup(function()
     use {'rafi/awesome-vim-colorschemes'}
     use {'marko-cerovac/material.nvim'}
     use {'tiagovla/tokyodark.nvim'}
+    use {'shaunsingh/moonlight.nvim'}
+    use {'olimorris/onedarkpro.nvim'}
 
     -- Fuzzy finder
     use {
@@ -19,7 +20,7 @@ return require('packer').startup(function()
 
     -- LSP and completion
     use {'neovim/nvim-lspconfig'}
-    use {'kabouzeid/nvim-lspinstall'}
+    use {'williamboman/nvim-lsp-installer'}
     use {'hrsh7th/nvim-compe'}
     use {'onsails/lspkind-nvim'}
     use {'p00f/nvim-ts-rainbow'}
@@ -90,5 +91,8 @@ return require('packer').startup(function()
 
     -- Speed up
     use {'lewis6991/impatient.nvim'}
+
+    -- Cp helper
+    use {'~/Code/projects/cphelper.nvim'}
 
 end)
