@@ -1,3 +1,4 @@
+---@diagnostic disable: undefined-global
 require('impatient')
 -- Map Leader
 vim.g.mapleader = ','
@@ -26,23 +27,28 @@ require('plugins')
 require('lsp_lua')
 
 -- Config
+require("config.indentline")
 require('config.lualine')
 require('config.colorscheme')
-require('config.compe')
-require('config.formatter')
+require('config.cmp')
 require('config.treesitter')
-require('config.lspkind')
 require('config.bufferline')
 require('config.autopairs')
 require('config.toggleterm')
 require('config.telescope')
-require('config.lsp-signature')
 require('config.tree')
+require('config.formatter')
+require("config.lightbulb")
 
+-- Disabled
+-- require('config.lspkind')
+-- require('config.nullls')
+-- require('config.compe')
+-- require('config.refactoring')
+-- require('config.lsp-signature')
 -- require('config.neoscroll')
 -- require('config.lspsaga')
 -- require('config.symbols')
 -- require('config.fterm')
--- require('config.refactoring')
 -- require('config.dashboard')
 -- require('config.presence')

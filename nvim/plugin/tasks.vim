@@ -1,69 +1,48 @@
 let g:asyncrun_open = 2
-let g:cphdir = "/home/initial1ze/Code/CF"
+let g:cphdir = "/home/initial1ze/code/cf"
 let g:cphlang = "cpp"
-" let g:cphborder = "floating"
+let g:cphborder = "floating"
 
 function! Cpsession()
-    if expand('%:p') == "/home/initial1ze/Code/CF/main.cpp"
+    if expand('%:p') == "/home/initial1ze/code/cf/main.cpp"
         cclose
-        mks!
     endif
 endfunction
 
 let g:asyncrun_status = "stopped"
 function AutoCompile()
-    if expand('%:p') == "/home/initial1ze/Code/CF/main.cpp"
+    if expand('%:p') == "/home/initial1ze/code/cf/main.cpp"
         AsyncTask file-build
     endif
 endfunction
 
+function! s:win_by_bufname(bufname)
+	let bufmap = map(range(1, winnr('$')), '[bufname(winbufnr(v:val)), v:val]')
+	let thewindow = filter(bufmap, 'v:val[0] =~ a:bufname')[0][1]
+	execute thewindow 'wincmd w'
+endfunction
+
+command! -nargs=* WinGo call s:win_by_bufname(<q-args>)
+
 function AsyncWrapper() 
     AsyncTask file-run
     call asyncrun#quickfix_toggle(2)
-    wincmd l 
-    2wincmd j
-    silent e! output
-    wincmd k 
-    2wincmd l
-    silent e! error
-    3wincmd h
+    call s:win_by_bufname("output")
+    silent e!
+    call s:win_by_bufname("error")
+    silent e!
+    call s:win_by_bufname("main.cpp")
     call asyncrun#quickfix_toggle(2)
 endfunction
 
-function InputHandler() 
-    if getcwd() == "/home/initial1ze/Code/CF"
-        w
-        call AsyncWrapper() 
-        wincmd l
-        2wincmd k
-   endif
-endfunction
-
-function Move(timer)
-        wincmd l
-        2wincmd k
-        silent e! input
-        wincmd h
-endfunction
-
-function GetInput()
-    if getcwd() == "/home/initial1ze/Code/CF"
-        AsyncRun ./parse.py
-        call timer_start(10000, 'Move')
-   endif
-endfunction
 
 augroup cp
       autocmd VimLeavePre main.cpp call Cpsession()
       autocmd BufWritePost main.cpp call AutoCompile()
-      autocmd BufWritePost,InsertLeave input call InputHandler()
 augroup END
 
 " F10 to toggle quickfix window
 nnoremap <silent> <F10> :call asyncrun#quickfix_toggle(2)<cr>
-" Source Session
-nnoremap <silent> <space>s :source Session.vim<cr>
 " Run the task
-nnoremap <silent> <F6> :call AsyncWrapper()<cr>
-" Fetch TestCases
-nnoremap <silent> <F7> :call GetInput()<cr>
+nnoremap <silent> <space>a :call AsyncWrapper()<cr>
+nnoremap <silent> <space>c :AsyncTask file-build<cr>

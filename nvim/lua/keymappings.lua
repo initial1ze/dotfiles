@@ -44,22 +44,14 @@ utils.map('n', '<C-Right>', '<cmd>vertical resize +2<cr>', {silent = true})
 utils.map('v', '<', '<gv', {noremap = true, silent = true})
 utils.map('v', '>', '>gv', {noremap = true, silent = true})
 
--- Nvim Tree
-utils.map('n', '<leader>e', '<cmd>NvimTreeToggle<cr>')
-
 -- Tasks
 utils.map('n', '<F9>', '<cmd>AsyncTask file-build<cr>', {silent = true})
 -- utils.map('n', '<F8>', '<cmd>AsyncTask file-run<cr>', {silent = true})
 
 utils.map('n', '<leader>fs', '<cmd>Telescope lsp_document_symbols<cr>')
 utils.map('n', '<leader>fr', '<cmd>Telescope lsp_references<cr>')
-utils.map('n', '<leader>fx', '<cmd>Telescope lsp_workspace_diagnostics<cr>')
+utils.map('n', '<leader>fx', '<cmd>Telescope diagnostic<cr>')
 
--- Diasble arropw keys for navigation
---[[ utils.map('n', '<Nop>', '<Up>')
-utils.map('n', '<Nop>', '<Down>')
-utils.map('n', '<Nop>', '<Right>')
-utils.map('n', '<Nop>', '<Left>') ]]
 vim.cmd [[
 inoremap <Up> <Nop>
 inoremap <Down> <Nop>
@@ -79,9 +71,6 @@ nnoremap <M-h>    :vertical resize -2<CR>
 nnoremap <M-l>    :vertical resize +2<CR>
 ]]
 
--- Custom commands
-utils.map('n', '//', '<cmd>Ioe<cr>')
-
 -- Parenthesis/bracket expanding
 utils.map('v', '$1', '<esc>`>a\'<esc>`<i\'<esc>')
 utils.map('v', '$2', '<esc>`>a)<esc>`<i(<esc>')
@@ -90,8 +79,25 @@ utils.map('v', '$4', '<esc>`>a}<esc>`<i{<esc>')
 utils.map('v', '$5', '<esc>`>a]<esc>`<i[<esc>')
 
 -- Move visual blocks with proper indentation
-utils.map('v', 'J', '<cmd>m \'>+1<cr>gv=gv')
-utils.map('v', 'K', '<cmd>m \'<-2<cr>gv=gv')
+-- utils.map('v', 'J', '<cmd>m \'>+1<cr>gv=gv')
+-- utils.map('v', 'K', '<cmd>m \'<-2<cr>gv=gv')
 
--- Move current block to void register
-utils.map('v', '<leader>p', '\"_dP')
+utils.map("n", "<leader>xx", "<cmd>Trouble<cr>", {silent = true, noremap = true})
+utils.map("n", "<leader>xw", "<cmd>Trouble workspace_diagnostics<cr>",
+          {silent = true, noremap = true})
+utils.map("n", "<leader>xd", "<cmd>Trouble document_diagnostics<cr>",
+          {silent = true, noremap = true})
+utils.map("n", "<leader>xl", "<cmd>Trouble loclist<cr>",
+          {silent = true, noremap = true})
+utils.map("n", "<leader>xq", "<cmd>Trouble quickfix<cr>",
+          {silent = true, noremap = true})
+utils.map("n", "gR", "<cmd>Trouble lsp_references<cr>",
+          {silent = true, noremap = true})
+
+utils.map("n", "<leader>sw",
+          "<cmd>lua require('diaglist').open_all_diagnostics()<cr>")
+utils.map("n", "<leader>sq",
+          "<cmd>lua require('diaglist').open_buffer_diagnostics()<cr>")
+
+utils.map("n", "<leader>;", "<cmd>lua require('yabs'):run_task('build')<cr>");
+utils.map("n", "<leader>r", "<cmd>lua require('yabs'):run_task('run')<cr>");

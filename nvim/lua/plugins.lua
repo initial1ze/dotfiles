@@ -1,16 +1,10 @@
+---@diagnostic disable: undefined-global
 return require('packer').startup(function()
-
-    -- Packer can manage itself as an optional plugin
     use {'wbthomason/packer.nvim', opt = true}
 
     -- Color schemes
     use {'ayu-theme/ayu-vim'}
     use {'folke/tokyonight.nvim'}
-    use {'rafi/awesome-vim-colorschemes'}
-    use {'marko-cerovac/material.nvim'}
-    use {'tiagovla/tokyodark.nvim'}
-    use {'shaunsingh/moonlight.nvim'}
-    use {'olimorris/onedarkpro.nvim'}
 
     -- Fuzzy finder
     use {
@@ -21,29 +15,29 @@ return require('packer').startup(function()
     -- LSP and completion
     use {'neovim/nvim-lspconfig'}
     use {'williamboman/nvim-lsp-installer'}
-    use {'hrsh7th/nvim-compe'}
-    use {'onsails/lspkind-nvim'}
     use {'p00f/nvim-ts-rainbow'}
     use {'windwp/nvim-ts-autotag'}
     use {'wellle/targets.vim'}
 
-    -- Which key
+    use {'hrsh7th/cmp-nvim-lsp'}
+    use {'hrsh7th/cmp-nvim-lua'}
+    use {'hrsh7th/cmp-buffer'}
+    use {'hrsh7th/cmp-path'}
+    use {'hrsh7th/cmp-cmdline'}
+    use {'hrsh7th/nvim-cmp'}
+    use {'hrsh7th/cmp-nvim-lsp-signature-help'}
+
     use {
-        'folke/which-key.nvim',
-        config = function() require('which-key').setup {} end
+        "folke/trouble.nvim",
+        requires = "kyazdani42/nvim-web-devicons",
+        config = function() require("trouble").setup {} end
     }
 
     -- Buffer
     use {'akinsho/nvim-bufferline.lua'}
 
-    -- Lua development
-    use {'tjdevries/nlua.nvim'}
-
     -- Commentary
     use {'b3nj5m1n/kommentary'}
-
-    -- Horizon Colorschme
-    use {'ntk148v/vim-horizon'}
 
     -- Auto Pairs
     use {'windwp/nvim-autopairs'}
@@ -66,25 +60,17 @@ return require('packer').startup(function()
     -- Nvim Tree
     use {'kyazdani42/nvim-tree.lua'}
 
-    -- LSP Signaature
-    use {'ray-x/lsp_signature.nvim'}
-
     -- Better syntax
     use {'nvim-treesitter/nvim-treesitter', run = ':TSUpdate'}
 
     -- Snippets
-    use {'hrsh7th/vim-vsnip'}
-    use {'hrsh7th/vim-vsnip-integ'}
+    use {'L3MON4D3/LuaSnip'}
+    use {'saadparwaiz1/cmp_luasnip'}
     use {'rafamadriz/friendly-snippets'}
-    use {'kkonghao/snippet-dog'}
     use {'honza/vim-snippets'}
     use {'ylcnfrht/vscode-python-snippet-pack'}
     use {'xabikos/vscode-javascript'}
     use {'dsznajder/vscode-es7-javascript-react-snippets'}
-
-    -- Tasks
-    use {'skywind3000/asyncrun.vim'}
-    use {'skywind3000/asynctasks.vim'}
 
     -- Terminal
     use {'akinsho/nvim-toggleterm.lua'}
@@ -92,7 +78,10 @@ return require('packer').startup(function()
     -- Speed up
     use {'lewis6991/impatient.nvim'}
 
-    -- Cp helper
-    use {'~/Code/projects/cphelper.nvim'}
+    use {'vimwiki/vimwiki'}
 
+    use {'skywind3000/asynctasks.vim'}
+    use {'skywind3000/asyncrun.vim'}
+
+    use {'nvim-treesitter/nvim-treesitter-textobjects'}
 end)

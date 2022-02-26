@@ -42,8 +42,3 @@ augroup remember_folds
   autocmd BufWinEnter *.* silent! loadview
 augroup END
 ]], true)
-
--- Custom split stuff
-vim.cmd [[
-command! -nargs=0 -bar Ioe :edit input | :edit output | :edit error | :edit main.cpp
-]]
