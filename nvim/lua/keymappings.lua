@@ -2,22 +2,17 @@
 local utils = require('utils')
 
 -- General
-utils.map('n', '<leader>c', '<cmd>noh<cr>') -- Clear highlights
-utils.map('i', 'jk', '<Esc>') -- jk to escape
-utils.map('i', 'kj', '<Esc>') -- kj to escape
-utils.map('t', 'jk', '<C-\\><C-n>') -- jk to escape
-utils.map('t', 'kj', '<C-\\><C-n>') -- jk to escape
-utils.map('t', '<esc>', '<C-\\><C-n>') -- jk to escape
--- utils.map('n', '<leader>,', '<cmd>w<cr>') -- write to the buffer
-utils.map('n', '<leader>cp', '<cmd>%y+<cr>') -- Yank entire buffer
+utils.map('n', '<leader>c', '<cmd>noh<cr>')
+utils.map('i', 'jk', '<Esc>')
+utils.map('i', 'kj', '<Esc>')
+utils.map('t', 'jk', '<C-\\><C-n>')
+utils.map('t', 'kj', '<C-\\><C-n>')
+utils.map('t', '<esc>', '<C-\\><C-n>')
+utils.map('n', '<leader>cp', '<cmd>%y+<cr>')
 
 -- Keep visual mode indenting
 utils.map('v', '<', '<gv', {noremap = true, silent = true})
 utils.map('v', '>', '>gv', {noremap = true, silent = true})
-
--- Terminal mappings
---[[ utils.map('n', '<leader>;', '<cmd>FloatermToggle<cr>', {silent = true})
-utils.map('t', '<leader>;', '<esc><cmd>FloatermToggle<cr>', {silent = true}) ]]
 
 -- Buffers
 utils.map('n', '<TAB>', '<cmd>BufferLineCycleNext<cr>', {silent = true})
@@ -25,7 +20,7 @@ utils.map('n', '<S-TAB>', '<cmd>BufferLineCyclePrev<cr>', {silent = true})
 utils.map('n', '<C-c>', '<cmd>bdelete<cr>', {silent = true})
 utils.map('n', '<space>b', '<cmd>BufferLinePick<cr>', {silent = true})
 
--- Register
+-- Registers
 utils.map('n', '"', '<cmd>Telescope registers<cr>', {silent = true})
 
 -- Window Movement
@@ -34,25 +29,7 @@ utils.map('n', '<C-j>', '<C-w>j', {silent = true})
 utils.map('n', '<C-k>', '<C-w>k', {silent = true})
 utils.map('n', '<C-l>', '<C-w>l', {silent = true})
 
--- Resize with arrows
-utils.map('n', '<C-Up>', '<cmd>resize -2<cr>', {silent = true})
-utils.map('n', '<C-Down>', '<cmd>resize +2<cr>', {silent = true})
-utils.map('n', '<C-Left>', '<cmd>vertical resize -2<cr>', {silent = true})
-utils.map('n', '<C-Right>', '<cmd>vertical resize +2<cr>', {silent = true})
-
--- Better indenting
-utils.map('v', '<', '<gv', {noremap = true, silent = true})
-utils.map('v', '>', '>gv', {noremap = true, silent = true})
-
--- Tasks
-utils.map('n', '<F9>', '<cmd>AsyncTask file-build<cr>', {silent = true})
--- utils.map('n', '<F8>', '<cmd>AsyncTask file-run<cr>', {silent = true})
-
-utils.map('n', '<leader>fs', '<cmd>Telescope lsp_document_symbols<cr>')
-utils.map('n', '<leader>fr', '<cmd>Telescope lsp_references<cr>')
-utils.map('n', '<leader>fx', '<cmd>Telescope diagnostic<cr>')
-
-vim.cmd [[
+vim.cmd([[
 inoremap <Up> <Nop>
 inoremap <Down> <Nop>
 inoremap <Left> <Nop>
@@ -61,15 +38,14 @@ noremap <Up> <Nop>
 noremap <Down> <Nop>
 noremap <Left> <Nop>
 noremap <Right> <Nop>
-]]
+]])
 
--- Resize panes
-vim.cmd [[
+vim.cmd([[
 nnoremap <M-j>    :resize -2<CR>
 nnoremap <M-k>    :resize +2<CR>
 nnoremap <M-h>    :vertical resize -2<CR>
 nnoremap <M-l>    :vertical resize +2<CR>
-]]
+]])
 
 -- Parenthesis/bracket expanding
 utils.map('v', '$1', '<esc>`>a\'<esc>`<i\'<esc>')
@@ -77,10 +53,6 @@ utils.map('v', '$2', '<esc>`>a)<esc>`<i(<esc>')
 utils.map('v', '$3', '<esc>`>a\"<esc>`<i\"<esc>')
 utils.map('v', '$4', '<esc>`>a}<esc>`<i{<esc>')
 utils.map('v', '$5', '<esc>`>a]<esc>`<i[<esc>')
-
--- Move visual blocks with proper indentation
--- utils.map('v', 'J', '<cmd>m \'>+1<cr>gv=gv')
--- utils.map('v', 'K', '<cmd>m \'<-2<cr>gv=gv')
 
 utils.map("n", "<leader>xx", "<cmd>Trouble<cr>", {silent = true, noremap = true})
 utils.map("n", "<leader>xw", "<cmd>Trouble workspace_diagnostics<cr>",
@@ -93,11 +65,3 @@ utils.map("n", "<leader>xq", "<cmd>Trouble quickfix<cr>",
           {silent = true, noremap = true})
 utils.map("n", "gR", "<cmd>Trouble lsp_references<cr>",
           {silent = true, noremap = true})
-
-utils.map("n", "<leader>sw",
-          "<cmd>lua require('diaglist').open_all_diagnostics()<cr>")
-utils.map("n", "<leader>sq",
-          "<cmd>lua require('diaglist').open_buffer_diagnostics()<cr>")
-
-utils.map("n", "<leader>;", "<cmd>lua require('yabs'):run_task('build')<cr>");
-utils.map("n", "<leader>r", "<cmd>lua require('yabs'):run_task('run')<cr>");

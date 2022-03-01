@@ -27,14 +27,12 @@ utils.opt('o', 'viewoptions', 'folds,cursor')
 
 -- Foldiing
 utils.map('o', 'foldmethod', 'manual')
---[[ utils.opt('o', 'foldmethod', 'expr')
-utils.opt('o', 'foldexpr', 'nvim_treesitter#foldexpr()') ]]
 
 -- Auto Format on save
 vim.api.nvim_exec([[
 augroup FormatAutogroup
   autocmd!
-  autocmd BufWritePost *.lua,*.py,*.cpp,*.c,*.cc,*.js,*.jsx,*.ts,*.tsx,*.rs,*.html,*.css FormatWrite
+  autocmd BufWritePost *.lua,*.py,*.cpp,*.c,*.cc,*.js,*.jsx,*.ts,*.tsx,*.rs,*.html,*.css,*.json FormatWrite
 augroup END
 augroup remember_folds
   autocmd!

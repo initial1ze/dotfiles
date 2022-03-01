@@ -1,11 +1,5 @@
 require('nvim-autopairs').setup({disable_filetype = {"TelescopePrompt"}})
 
---[[ local Rule = require("nvim-autopairs.rule")
-local npairs = require('nvim-autopairs') ]]
-
--- npairs.add_rule(Rule('<', '>', "cpp"))
-
--- If you want insert `(` after select function or method item
 local cmp_autopairs = require('nvim-autopairs.completion.cmp')
 local cmp = require('cmp')
 cmp.event:on('confirm_done',

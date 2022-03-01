@@ -1,11 +1,3 @@
-" call wilder#enable_cmdline_enter()
-" set wildcharm=<Tab>
-" cmap <expr> <Tab> wilder#in_context() ? wilder#next() : "\<Tab>"
-" cmap <expr> <S-Tab> wilder#in_context() ? wilder#previous() : "\<S-Tab>"
-
-" " only / and ? are enabled by default
-" call wilder#set_option('modes', ['/', '?', ':'])
-
 let g:nvim_tree_quit_on_open = 1 "0 by default, closes the tree when you open a file
 let g:nvim_tree_indent_markers = 1 "0 by default, this option shows indent markers when folders are open
 let g:nvim_tree_git_hl = 1 "0 by default, will enable file highlight for git attributes (can be used without the icons).
@@ -77,7 +69,4 @@ nnoremap <space>l :NvimTreeToggle<CR>
 " NvimTreeOpen, NvimTreeClose, NvimTreeFocus, NvimTreeFindFileToggle, and NvimTreeResize are also available if you need them
 
 set termguicolors " this variable must be enabled for colors to be applied properly
-
-" a list of groups can be found at `:help nvim_tree_highlight`
 highlight NvimTreeFolderIcon guibg=blue
-

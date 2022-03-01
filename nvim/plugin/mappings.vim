@@ -1,3 +1,10 @@
+" Find files using Telescope command-line sugar.
+nnoremap <leader>ff <cmd>Telescope find_files<cr>
+nnoremap <leader>fo <cmd>Telescope oldfiles<cr>
+nnoremap <leader>fg <cmd>Telescope live_grep<cr>
+nnoremap <leader>fb <cmd>Telescope buffers<cr>
+nnoremap <leader>fh <cmd>Telescope help_tags<cr>
+
 " Substitute word under the cursor
 " Forward Substitution
 nnoremap c* /\<<C-R>=expand('<cword>')<CR>\>\C<CR>``cgn
@@ -25,11 +32,3 @@ nnoremap <space>q :qall<cr>
 " Jump to matching pair
 nnoremap Q %
 vnoremap Q %
-
-" Use Ctrl+j and Crtl+k to move blocks
-" nnoremap <space>j :m .+1<CR>==
-" nnoremap <space>k :m .-2<CR>==
-" inoremap <space>j <Esc>:m .+1<CR>==gi
-" inoremap <space>k <Esc>:m .-2<CR>==gi
-" vnoremap <space>j :m '>+1<CR>gv=gv
-" vnoremap <space>k :m '<-2<CR>gv=gv
